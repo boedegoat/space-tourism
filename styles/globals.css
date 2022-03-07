@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.wrapper {
+  @apply mx-auto max-w-5xl px-6 lg:px-0;
+}
+
+.bg-home-mobile {
+  @apply bg-cover bg-center;
+  background-image: url(../public/home/background-home-mobile.jpg);
+}
+
+.bg-home-tablet {
+  @apply bg-cover bg-center;
+  background-image: url(../public/home/background-home-tablet.jpg);
+}
+
+.bg-home-desktop {
+  @apply bg-cover bg-center;
+  background-image: url(../public/home/background-home-desktop.jpg);
+}
