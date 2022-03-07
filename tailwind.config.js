@@ -6,16 +6,19 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        barlow: ['Barlow', ...defaultTheme.fontFamily.sans],
-        'barlow-condensed': [
-          'Barlow Condensed',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        bellefair: ['Bellefair', ...defaultTheme.fontFamily.serif],
+    fontFamily: {
+      barlow: ['Barlow', ...defaultTheme.fontFamily.sans],
+      'barlow-condensed': ['Barlow Condensed', ...defaultTheme.fontFamily.sans],
+      bellefair: ['Bellefair', ...defaultTheme.fontFamily.serif],
+    },
+    colors: {
+      white: '#fff',
+      blue: {
+        100: '#D0D6F9',
+        800: '#0B0D17',
       },
     },
+    extends: {},
   },
   plugins: [],
 }

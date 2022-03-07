@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from './Link'
 
 function cn(...classNames: string[]) {
   return classNames.filter((className) => className).join(' ')
@@ -25,8 +26,8 @@ const NavBar = () => {
 }
 
 interface IMobileNav {
-  openMobileNav: any
-  closeMobileNav: any
+  openMobileNav: boolean
+  closeMobileNav: () => void
   navLinks: string[]
 }
 
@@ -51,10 +52,14 @@ const MobileNav = ({ openMobileNav, closeMobileNav, navLinks }: IMobileNav) => {
           </div>
           <div className="mt-[64.95px] flex flex-col space-y-8">
             {navLinks.map((link, index) => (
-              <a href="#" className="uppercase tracking-[2.7px] text-white">
+              <Link
+                key={link}
+                href={`/${link == 'home' ? '' : link}`}
+                className="uppercase tracking-[2.7px] text-white"
+              >
                 <span className="mr-[11px] font-bold">0{index}</span>
                 {link}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
