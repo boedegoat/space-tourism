@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from './Link'
 
@@ -15,7 +16,9 @@ const NavBar = () => {
   return (
     <nav className="py-6 font-barlow-condensed">
       <div className="wrapper flex items-center justify-between">
-        <img src="/shared/logo.svg" alt="space logo" className="h-10 w-10" />
+        <Link href="/">
+          <img src="/shared/logo.svg" alt="space logo" className="h-10 w-10" />
+        </Link>
         <button onClick={slideMobileNav}>
           <img src="/shared/icon-hamburger.svg" alt="hamburger icon" />
         </button>
@@ -32,6 +35,8 @@ interface IMobileNav {
 }
 
 const MobileNav = ({ openMobileNav, closeMobileNav, navLinks }: IMobileNav) => {
+  const router = useRouter()
+
   return (
     <>
       <div
@@ -44,24 +49,28 @@ const MobileNav = ({ openMobileNav, closeMobileNav, navLinks }: IMobileNav) => {
           openMobileNav ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className="p-6">
-          <div className="flex h-10 items-center justify-end">
-            <button onClick={closeMobileNav}>
-              <img src="/shared/icon-close.svg" alt="close icon" />
-            </button>
-          </div>
-          <div className="mt-[64.95px] flex flex-col space-y-8">
-            {navLinks.map((link, index) => (
+        <div className="m-6 flex h-10 items-center justify-end">
+          <button onClick={closeMobileNav}>
+            <img src="/shared/icon-close.svg" alt="close icon" />
+          </button>
+        </div>
+        <div className="mt-[64.95px] flex flex-col space-y-8 p-6 pr-0">
+          {navLinks.map((link, index) => {
+            const path = `/${link == 'home' ? '' : link}`
+            return (
               <Link
                 key={link}
-                href={`/${link == 'home' ? '' : link}`}
-                className="uppercase tracking-[2.7px] text-white"
+                href={path}
+                className={cn(
+                  'flex h-[31px] items-center border-white uppercase tracking-[2.7px] text-white',
+                  router.pathname == path ? 'border-r-4' : ''
+                )}
               >
                 <span className="mr-[11px] font-bold">0{index}</span>
                 {link}
               </Link>
-            ))}
-          </div>
+            )
+          })}
         </div>
       </div>
     </>
