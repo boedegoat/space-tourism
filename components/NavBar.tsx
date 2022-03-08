@@ -2,25 +2,18 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from './Link'
 import { cn } from '../lib/utils'
-import useScreen from '../hooks/useScreen'
 
 const NavBar = () => {
   const router = useRouter()
   const navLinks = ['home', 'destination', 'crew', 'technology']
   const [openMobileNav, setOpenMobileNav] = useState(false)
-  const inTablet = useScreen('tablet')
 
   const slideMobileNav = () => setOpenMobileNav(true)
   const closeMobileNav = () => setOpenMobileNav(false)
 
   return (
     <nav className="sticky top-0 z-40 font-barlow-condensed">
-      <div
-        className={cn(
-          'flex items-center justify-between',
-          inTablet ? 'pl-[39px]' : 'wrapper py-6'
-        )}
-      >
+      <div className="nav-wrapper flex items-center justify-between py-6 tablet:py-0">
         <Link href="/" className="my-6">
           <img
             src="/shared/logo.svg"

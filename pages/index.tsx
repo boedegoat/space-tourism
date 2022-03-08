@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <Container
       screenClassName="bg-home-mobile"
-      className="wrapper mt-12 flex flex-col items-center"
+      className="wrapper mt-12 flex flex-col items-center tablet:mt-[106px]"
     >
       <div className="text-center">
         <h2 className="font-barlow-condensed uppercase tracking-[2.7px] text-blue-100">

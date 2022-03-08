@@ -8,6 +8,10 @@
   @apply mx-auto max-w-md px-6 tablet:px-0;
 }
 
+.nav-wrapper {
+  @apply mx-auto max-w-md px-6 tablet:mx-0 tablet:max-w-none tablet:px-0 tablet:pl-[39px];
+}
+
 .bg-home-mobile {
   @apply bg-cover bg-center;
   background-image: url(../public/home/background-home-mobile.jpg);
