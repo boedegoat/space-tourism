@@ -1,6 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import { FC } from 'react'
 import Container from '../components/Container'
+import Heading2 from '../components/Heading2'
 import Link from '../components/Link'
 import SpaceData from '../data.json'
 import { cn, formatPath } from '../lib/utils'
@@ -13,9 +14,7 @@ interface IDestination {
 const Destination: NextPage<IDestination> = ({ destinationTab }) => {
   return (
     <Container screenClassName="bg-destination-mobile" className="wrapper">
-      <h2 className="text-center font-barlow-condensed tracking-[2.7px] text-white">
-        <span className="font-bold opacity-25">01</span> PICK YOUR DESTINATION
-      </h2>
+      <Heading2 number={1}>PICK YOUR DESTINATION</Heading2>
       <Planet destinationTab={destinationTab} />
     </Container>
   )

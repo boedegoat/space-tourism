@@ -38,6 +38,36 @@
   background-image: url(../public/destination/background-destination-desktop.jpg);
 }
 
+.bg-crew-mobile {
+  @apply bg-cover bg-center;
+  background-image: url(../public/crew/background-crew-mobile.jpg);
+}
+
+.bg-crew-tablet {
+  @apply bg-cover bg-center;
+  background-image: url(../public/crew/background-crew-tablet.jpg);
+}
+
+.bg-crew-desktop {
+  @apply bg-cover bg-center;
+  background-image: url(../public/crew/background-crew-desktop.jpg);
+}
+
+.bg-technology-mobile {
+  @apply bg-cover bg-center;
+  background-image: url(../public/technology/background-technology-mobile.jpg);
+}
+
+.bg-technology-tablet {
+  @apply bg-cover bg-center;
+  background-image: url(../public/technology/background-technology-tablet.jpg);
+}
+
+.bg-technology-desktop {
+  @apply bg-cover bg-center;
+  background-image: url(../public/technology/background-technology-desktop.jpg);
+}
+
 .planet-detail {
   @apply text-center;
 }
