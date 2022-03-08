@@ -11,7 +11,7 @@ const NavBar = () => {
   const closeMobileNav = () => setOpenMobileNav(false)
 
   return (
-    <nav className="py-6 font-barlow-condensed">
+    <nav className="sticky top-0 z-40 py-6 font-barlow-condensed">
       <div className="wrapper flex items-center justify-between">
         <Link href="/">
           <img src="/shared/logo.svg" alt="space logo" className="h-10 w-10" />

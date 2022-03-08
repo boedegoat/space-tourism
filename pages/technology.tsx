@@ -4,7 +4,7 @@ import Container from '../components/Container'
 import Heading2 from '../components/Heading2'
 import Link from '../components/Link'
 import SpaceData from '../data.json'
-import { cn, formatPath } from '../lib/utils'
+import { cn, formatPath, getNameSlug } from '../lib/utils'
 const { technology } = SpaceData
 
 interface Itechnology {
@@ -21,10 +21,6 @@ const Technology: NextPage<Itechnology> = ({ technologyTab }) => {
 }
 
 interface ITech extends Itechnology {}
-
-function getNameSlug(name: string) {
-  return name.toLowerCase().replace(/ /g, '-')
-}
 
 const Tech: FC<ITech> = ({ technologyTab }) => {
   const technologyData = technology.find(
