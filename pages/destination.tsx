@@ -33,13 +33,13 @@ const Planet: FC<IPlanet> = ({ destinationTab }) => {
   )
 
   return destinationData ? (
-    <div className="wrapper mt-8">
+    <div className="wrapper mt-8 pb-8 tablet:mt-[60px] tablet:pb-[62px]">
       <img
         src={formatPath(destinationData.images.webp)}
         alt={destinationData.name}
-        className="mx-auto h-[170px] w-[170]"
+        className="mx-auto h-[170px] w-[170] tablet:h-[300px] tablet:w-[300px]"
       />
-      <div className="mt-[26px] flex flex-col items-center">
+      <div className="mt-[26px] flex flex-col items-center tablet:mt-[53px]">
         {/* tabs */}
         <div className="flex space-x-[26px]">
           {destinationNames.map((destinationName) => (
@@ -48,7 +48,7 @@ const Planet: FC<IPlanet> = ({ destinationTab }) => {
               scroll={false}
               key={destinationName}
               className={cn(
-                'border-white pb-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] hover:border-b-[3px] hover:border-white/50',
+                'border-white pb-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] hover:border-b-[3px] hover:border-white/50 tablet:text-base tablet:tracking-[2.7px]',
                 destinationTab == destinationName
                   ? 'border-b-[3px] text-white'
                   : 'text-blue-100'
@@ -58,14 +58,14 @@ const Planet: FC<IPlanet> = ({ destinationTab }) => {
             </Link>
           ))}
         </div>
-        <h1 className="mt-5 font-bellefair text-[56px] uppercase text-white">
+        <h1 className="mt-5 font-bellefair text-[56px] uppercase text-white tablet:mt-8 tablet:text-[80px]">
           {destinationData.name}
         </h1>
-        <p className="text-center text-[15px] text-blue-100">
+        <p className="text-center text-[15px] text-blue-100 tablet:mt-2">
           {destinationData.description}
         </p>
-        <hr className="my-8 w-full border-gray" />
-        <div className="mb-8 space-y-8">
+        <hr className="my-8 w-full border-gray tablet:mt-[49px]" />
+        <div className="space-y-8 tablet:flex tablet:space-y-0 tablet:space-x-16">
           <div className="planet-detail">
             <h3>AVG. DISTANCE</h3>
             <h2>{destinationData.distance}</h2>
