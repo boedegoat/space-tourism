@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from './Link'
-
-function cn(...classNames: string[]) {
-  return classNames.filter((className) => className).join(' ')
-}
+import { cn } from '../lib/utils'
 
 const NavBar = () => {
   const navLinks = ['home', 'destination', 'crew', 'technology']

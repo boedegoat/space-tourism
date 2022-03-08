@@ -4,7 +4,10 @@ import Link from '../components/Link'
 
 const Home: NextPage = () => {
   return (
-    <Container className="wrapper mt-12 flex flex-col items-center">
+    <Container
+      screenClassName="bg-home-mobile"
+      className="wrapper mt-12 flex flex-col items-center"
+    >
       <div className="text-center">
         <h2 className="font-barlow-condensed uppercase tracking-[2.7px] text-blue-100">
           so, you want to travel to

@@ -22,3 +22,30 @@
   @apply bg-cover bg-center;
   background-image: url(../public/home/background-home-desktop.jpg);
 }
+
+.bg-destination-mobile {
+  @apply bg-cover bg-center;
+  background-image: url(../public/destination/background-destination-mobile.jpg);
+}
+
+.bg-destination-tablet {
+  @apply bg-cover bg-center;
+  background-image: url(../public/destination/background-destination-tablet.jpg);
+}
+
+.bg-destination-desktop {
+  @apply bg-cover bg-center;
+  background-image: url(../public/destination/background-destination-desktop.jpg);
+}
+
+.planet-detail {
+  @apply text-center;
+}
+
+.planet-detail h3 {
+  @apply font-barlow-condensed text-sm tracking-[2.36px] text-blue-100;
+}
+
+.planet-detail h2 {
+  @apply font-bellefair text-[28px] uppercase text-white;
+}
