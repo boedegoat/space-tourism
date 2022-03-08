@@ -20,10 +20,7 @@ const Home: NextPage = () => {
           experience!
         </p>
       </div>
-      <Link
-        href="/destination"
-        className="mt-[81px] flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white font-bellefair text-xl tracking-[1.25px] text-blue-800"
-      >
+      <Link href="/destination" className="explore-btn">
         EXPLORE
       </Link>
     </Container>

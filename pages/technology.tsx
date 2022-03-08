@@ -45,10 +45,10 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
               href={{ query: { technologyTab: techName } }}
               scroll={false}
               className={cn(
-                'inline-flex h-[40px] w-[40px] items-center justify-center rounded-full font-bellefair ',
+                'inline-flex h-[40px] w-[40px] items-center justify-center rounded-full font-bellefair transition-all hover:border-white',
                 technologyTab == techName
                   ? 'bg-white text-blue-800'
-                  : 'border-2 border-gray text-white'
+                  : 'border border-white/25 text-white'
               )}
             >
               {index + 1}

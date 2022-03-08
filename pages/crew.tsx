@@ -33,7 +33,7 @@ const Crew: NextPage<ICrew> = ({ crewTab }) => {
                 key={index}
                 scroll={false}
                 className={cn(
-                  'inline-block h-[10px] w-[10px] rounded-full bg-white',
+                  'inline-block h-[10px] w-[10px] rounded-full bg-white transition-opacity hover:opacity-50',
                   crewTab == crewName ? 'opacity-1' : 'opacity-[17.44%]'
                 )}
               ></Link>

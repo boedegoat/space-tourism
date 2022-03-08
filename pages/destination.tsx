@@ -48,7 +48,7 @@ const Planet: FC<IPlanet> = ({ destinationTab }) => {
               scroll={false}
               key={destinationName}
               className={cn(
-                'border-white pb-2 font-barlow-condensed text-sm uppercase tracking-[2.36px]',
+                'border-white pb-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] hover:border-b-[3px] hover:border-white/50',
                 destinationTab == destinationName
                   ? 'border-b-[3px] text-white'
                   : 'text-blue-100'
