@@ -12,7 +12,7 @@ const NavBar = () => {
   const closeMobileNav = () => setOpenMobileNav(false)
 
   return (
-    <nav className="sticky top-0 z-40 font-barlow-condensed">
+    <nav className="relative z-40 font-barlow-condensed">
       <div className="nav-wrapper flex items-center justify-between py-6 tablet:py-0">
         <Link href="/" className="my-6">
           <img
