@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .wrapper {
-  @apply mx-auto max-w-5xl px-6 lg:px-0;
+  @apply mx-auto max-w-md px-6 tablet:px-0;
 }
 
 .bg-home-mobile {
