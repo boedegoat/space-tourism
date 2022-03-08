@@ -13,7 +13,7 @@ interface IDestination {
 
 const Destination: NextPage<IDestination> = ({ destinationTab }) => {
   return (
-    <Container screenClassName="bg-destination-mobile" className="wrapper">
+    <Container screenClassName="bg-destination-mobile">
       <Heading2 number={1}>PICK YOUR DESTINATION</Heading2>
       <Planet destinationTab={destinationTab} />
     </Container>
@@ -33,7 +33,7 @@ const Planet: FC<IPlanet> = ({ destinationTab }) => {
   )
 
   return destinationData ? (
-    <div className="mt-8">
+    <div className="wrapper mt-8">
       <img
         src={formatPath(destinationData.images.webp)}
         alt={destinationData.name}
