@@ -2,8 +2,9 @@ import type { GetServerSideProps, NextPage } from 'next'
 import { FC } from 'react'
 import Container from '../components/Container'
 import Link from '../components/Link'
-import { destinations } from '../data.json'
+import SpaceData from '../data.json'
 import { cn, formatPath } from '../lib/utils'
+const { destinations } = SpaceData
 
 interface IDestination {
   destinationTab: string
