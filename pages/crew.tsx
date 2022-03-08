@@ -16,7 +16,10 @@ const Crew: NextPage<ICrew> = ({ crewTab }) => {
   console.log(crewData)
 
   return (
-    <Container screenClassName="bg-crew-mobile" className="wrapper">
+    <Container
+      screenClassName="bg-crew-mobile tablet:bg-crew-tablet"
+      className="wrapper"
+    >
       <Heading2 number={2}>MEET YOUR CREW</Heading2>
       <div className="mt-8 space-y-8 pb-8">
         {/* slider */}

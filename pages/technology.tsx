@@ -13,7 +13,7 @@ interface Itechnology {
 
 const Technology: NextPage<Itechnology> = ({ technologyTab }) => {
   return (
-    <Container screenClassName="bg-technology-mobile">
+    <Container screenClassName="bg-technology-mobile tablet:bg-technology-tablet">
       <Heading2 number={3}>SPACE LAUNCH 101</Heading2>
       <Tech technologyTab={technologyTab} />
     </Container>

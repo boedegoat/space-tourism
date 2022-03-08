@@ -13,7 +13,7 @@ interface IDestination {
 
 const Destination: NextPage<IDestination> = ({ destinationTab }) => {
   return (
-    <Container screenClassName="bg-destination-mobile">
+    <Container screenClassName="bg-destination-mobile tablet:bg-destination-tablet">
       <Heading2 number={1}>PICK YOUR DESTINATION</Heading2>
       <Planet destinationTab={destinationTab} />
     </Container>

@@ -5,7 +5,7 @@ import Link from '../components/Link'
 const Home: NextPage = () => {
   return (
     <Container
-      screenClassName="bg-home-mobile"
+      screenClassName="bg-home-mobile tablet:bg-home-tablet"
       className="wrapper mt-12 flex flex-col items-center pb-12 tablet:mt-[106px] tablet:px-16 tablet:pb-[90px]"
     >
       <div className="text-center">

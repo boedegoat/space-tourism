@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from './Link'
 import { cn } from '../lib/utils'
 
@@ -7,6 +7,12 @@ const NavBar = () => {
   const router = useRouter()
   const navLinks = ['home', 'destination', 'crew', 'technology']
   const [openMobileNav, setOpenMobileNav] = useState(false)
+
+  useEffect(() => {
+    const bodyClass = document.body.classList
+    if (openMobileNav) bodyClass.add('overflow-hidden')
+    else bodyClass.remove('overflow-hidden')
+  }, [openMobileNav])
 
   const slideMobileNav = () => setOpenMobileNav(true)
   const closeMobileNav = () => setOpenMobileNav(false)
