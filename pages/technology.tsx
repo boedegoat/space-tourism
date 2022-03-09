@@ -30,13 +30,13 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
   console.log(technologyData)
 
   return technologyData ? (
-    <div className="mt-8">
+    <div className="mt-8 tablet:mt-[60px]">
       <img
         src={formatPath(technologyData.images.landscape)}
         alt={technologyData.name}
-        className="h-[170px] w-full object-cover"
+        className="h-[170px] w-full object-cover tablet:h-[310px]"
       />
-      <div className="mt-[34px]">
+      <div className="mt-[34px] tablet:mt-[56px]">
         {/* tabs */}
         <div className="flex justify-center space-x-4">
           {technologyNames.map((techName, index) => (
@@ -45,7 +45,7 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
               href={{ query: { technologyTab: techName } }}
               scroll={false}
               className={cn(
-                'inline-flex h-[40px] w-[40px] items-center justify-center rounded-full font-bellefair transition-all hover:border-white',
+                'inline-flex h-[40px] w-[40px] items-center justify-center rounded-full font-bellefair transition-all hover:border-white tablet:h-[60px] tablet:w-[60px] tablet:text-2xl',
                 technologyTab == techName
                   ? 'bg-white text-blue-800'
                   : 'border border-white/25 text-white'
@@ -55,14 +55,14 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
             </Link>
           ))}
         </div>
-        <div className="wrapper mt-[26px] pb-[26px] text-center">
-          <h3 className="font-barlow-condensed text-sm tracking-[2.36px] text-blue-100">
+        <div className="wrapper mt-[26px] pb-[26px] text-center tablet:mt-[44px]">
+          <h3 className="font-barlow-condensed text-sm tracking-[2.36px] text-blue-100 tablet:text-base tablet:tracking-[2.7px]">
             THE TERMINOLOGY…
           </h3>
-          <h1 className="mt-[9px] font-bellefair text-2xl uppercase text-white">
+          <h1 className="mt-[9px] font-bellefair text-2xl uppercase text-white tablet:mt-4 tablet:text-[40px]">
             {technologyData.name}
           </h1>
-          <p className="mt-4 text-[15px] leading-[25px] text-blue-100">
+          <p className="mt-4 text-[15px] leading-[25px] text-blue-100 tablet:text-base tablet:leading-[28px]">
             {technologyData.description}
           </p>
         </div>
