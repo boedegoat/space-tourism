@@ -18,7 +18,7 @@ const NavBar = () => {
   const closeMobileNav = () => setOpenMobileNav(false)
 
   return (
-    <nav className="relative z-40 font-barlow-condensed">
+    <nav className="relative z-40 font-barlow-condensed desktop:pt-10">
       <div className="nav-wrapper flex items-center justify-between py-6 tablet:py-0">
         <Link href="/" className="my-6">
           <img
@@ -27,8 +27,9 @@ const NavBar = () => {
             className="h-10 w-10 tablet:h-12 tablet:w-12"
           />
         </Link>
+        <div className="absolute left-40 z-10 hidden h-[1px] w-[32%] bg-white/25 desktop:block"></div>
         {/* desktopNav */}
-        <div className="hidden w-[61%] space-x-[37px] self-stretch bg-white/[4%] px-12 tablet:flex">
+        <div className="hidden w-[61%] space-x-[37px] self-stretch bg-white/[4%] px-12 tablet:flex desktop:space-x-12 desktop:px-[123px] desktop:backdrop-blur-[81.55px]">
           {navLinks.map((link, index) => {
             const path = `/${link == 'home' ? '' : link}`
             return (
@@ -36,12 +37,15 @@ const NavBar = () => {
                 key={link}
                 href={path}
                 className={cn(
-                  'flex items-center  border-b-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] text-white hover:border-white/50',
+                  'flex items-center border-b-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] text-white hover:border-white/50 desktop:text-base desktop:tracking-[2.7px]',
                   router.pathname == path
                     ? 'border-white'
                     : 'border-transparent'
                 )}
               >
+                <span className="mr-[11px] hidden font-bold desktop:inline-block">
+                  0{index}
+                </span>
                 {link}
               </Link>
             )

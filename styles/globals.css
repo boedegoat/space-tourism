@@ -6,11 +6,11 @@
 
 @layer components {
   .wrapper {
-    @apply mx-auto max-w-md px-6 tablet:max-w-[573px] tablet:px-0;
+    @apply mx-auto max-w-md px-6 tablet:max-w-[573px] tablet:px-0 desktop:max-w-[1110px];
   }
 
   .nav-wrapper {
-    @apply mx-auto max-w-md px-6 tablet:mx-0 tablet:max-w-none tablet:px-0 tablet:pl-[39px];
+    @apply mx-auto max-w-md px-6 tablet:mx-0 tablet:max-w-none tablet:px-0 tablet:pl-[39px] desktop:pl-[55px];
   }
 
   .bg-home-mobile {
@@ -74,7 +74,7 @@
   }
 
   .explore-btn {
-    @apply mt-[81px] flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white font-bellefair text-xl tracking-[1.25px] text-blue-800 tablet:mt-[156px] tablet:h-[242px] tablet:w-[242px] tablet:text-[32px];
+    @apply mt-[81px] flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white font-bellefair text-xl tracking-[1.25px] text-blue-800 tablet:mt-[156px] tablet:h-[242px] tablet:w-[242px] tablet:text-[32px] desktop:mt-0 desktop:h-[274px] desktop:w-[274px] desktop:tracking-[2px];
     transition: box-shadow 0.4s ease-out;
   }
   .explore-btn:hover {

@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 const screens = {
   tablet: '768px',
+  desktop: '1024px',
 }
 
 module.exports = {
