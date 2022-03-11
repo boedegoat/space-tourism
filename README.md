@@ -1,27 +1,48 @@
-# Next.js + Tailwind CSS Example
+# Space tourism website
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<!-- screenshots here -->
 
-## Preview
+A challenge from [frontendmentor.io](https://www.frontendmentor.io/)
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Overview
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+### Links
 
-## Deploy your own
+- [Live Site](https://your-live-site-url.com)
+- [Solution](https://your-solution-url.com)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### The challenge
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+Users should be able to:
 
-## How to use
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Create the background shape using code
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## My process
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### Built with
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Other libraries](https://link/)...
+
+### What I learned
+
+- What do you think about this project ?
+- What have you learned from this project ?
+- Is there any issue while doing this project ?
+- How you solve those issue ?
+
+### Useful Resources
+
+1. [Figma](https://www.figma.com/) - Paste your project design mockups to check the size, colors, etc.
+2. [Perfect Pixel](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi) - Helps you to match the pixels of the design.
+
+## Acknowledgments
+
+Thank you very much to everyone who gave me feedback on my solution. It greatly assists me in improving my frontend development skills.
