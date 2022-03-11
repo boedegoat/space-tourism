@@ -30,7 +30,6 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
     (tech) => getNameSlug(tech.name) == technologyTab
   )!
   const technologyNames = technology.map((tech) => getNameSlug(tech.name))
-  console.log(technologyData)
 
   return technologyData ? (
     <div className="mt-8 tablet:mt-[60px] desktop:flex desktop:items-center">
