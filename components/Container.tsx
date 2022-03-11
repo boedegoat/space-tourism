@@ -16,6 +16,7 @@ const Container: FC<IContainer> = ({ children, screenClassName, ...props }) => {
     <div className={cn('min-h-screen font-barlow', screenClassName)}>
       <Head>
         <title>Space Tourism</title>
+        <link rel="shortcut icon" href="/favicon-32x32.png" type="image/png" />
       </Head>
       <NavBar />
       <main {...props}>{children}</main>
