@@ -13,7 +13,10 @@ interface Itechnology {
 
 const Technology: NextPage<Itechnology> = ({ technologyTab }) => {
   return (
-    <Container screenClassName="bg-technology-mobile tablet:bg-technology-tablet">
+    <Container
+      screenClassName="bg-technology-mobile tablet:bg-technology-tablet desktop:bg-technology-desktop"
+      className="desktop:wrapper"
+    >
       <Heading2 number={3}>SPACE LAUNCH 101</Heading2>
       <Tech technologyTab={technologyTab} />
     </Container>
@@ -30,22 +33,23 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
   console.log(technologyData)
 
   return technologyData ? (
-    <div className="mt-8 tablet:mt-[60px]">
+    <div className="mt-8 tablet:mt-[60px] desktop:flex desktop:items-center">
+      {/* mobile - tablet image */}
       <img
         src={formatPath(technologyData.images.landscape)}
         alt={technologyData.name}
-        className="h-[170px] w-full object-cover tablet:h-[310px]"
+        className="h-[170px] w-full object-cover tablet:h-[310px] desktop:hidden"
       />
-      <div className="mt-[34px] tablet:mt-[56px]">
+      <div className="mt-[34px] tablet:mt-[56px] desktop:flex desktop:space-x-20">
         {/* tabs */}
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 desktop:flex-col desktop:space-x-0 desktop:space-y-8">
           {technologyNames.map((techName, index) => (
             <Link
               key={techName}
               href={{ query: { technologyTab: techName } }}
               scroll={false}
               className={cn(
-                'inline-flex h-[40px] w-[40px] items-center justify-center rounded-full font-bellefair transition-all hover:border-white tablet:h-[60px] tablet:w-[60px] tablet:text-2xl',
+                'inline-flex h-[40px] w-[40px] items-center justify-center rounded-full font-bellefair transition-all hover:border-white tablet:h-[60px] tablet:w-[60px] tablet:text-2xl desktop:h-[80px] desktop:w-[80px]',
                 technologyTab == techName
                   ? 'bg-white text-blue-800'
                   : 'border border-white/25 text-white'
@@ -55,18 +59,24 @@ const Tech: FC<ITech> = ({ technologyTab }) => {
             </Link>
           ))}
         </div>
-        <div className="wrapper mt-[26px] pb-[26px] text-center tablet:mt-[44px]">
+        <div className="wrapper mt-[26px] pb-[26px] text-center tablet:mt-[44px] desktop:text-left">
           <h3 className="font-barlow-condensed text-sm tracking-[2.36px] text-blue-100 tablet:text-base tablet:tracking-[2.7px]">
             THE TERMINOLOGY…
           </h3>
-          <h1 className="mt-[9px] font-bellefair text-2xl uppercase text-white tablet:mt-4 tablet:text-[40px]">
+          <h1 className="mt-[9px] font-bellefair text-2xl uppercase text-white tablet:mt-4 tablet:text-[40px] desktop:text-[56px] desktop:leading-normal">
             {technologyData.name}
           </h1>
-          <p className="mt-4 text-[15px] leading-[25px] text-blue-100 tablet:text-base tablet:leading-[28px]">
+          <p className="mt-4 text-[15px] leading-[25px] text-blue-100 tablet:text-base tablet:leading-[28px] desktop:text-lg desktop:leading-[32px]">
             {technologyData.description}
           </p>
         </div>
       </div>
+      {/* desktop image */}
+      <img
+        src={formatPath(technologyData.images.portrait)}
+        alt={technologyData.name}
+        className="ml-12 hidden desktop:inline-block"
+      />
     </div>
   ) : null
 }
