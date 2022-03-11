@@ -82,7 +82,7 @@
   }
 
   .planet-detail {
-    @apply text-center;
+    @apply text-center desktop:text-left;
   }
 
   .planet-detail h3 {
