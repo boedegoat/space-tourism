@@ -1,15 +1,16 @@
-import { GetServerSideProps, NextPage } from 'next'
-import Container from '../components/Container'
-import Heading2 from '../components/Heading2'
-import Link from '../components/Link'
-import SpaceData from '../data.json'
-import { cn, formatPath, getNameSlug } from '../lib/utils'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { getData, getPaths } from '../../lib/utils'
+import Container from '../../components/Container'
+import Heading2 from '../../components/Heading2'
+import Link from '../../components/Link'
+import SpaceData from '../../data.json'
+import { cn, formatPath, getNameSlug } from '../../lib/utils'
 const { crew: crews } = SpaceData
 
 interface ICrew {
   crew: {
-    tab: string
-    names: string[]
+    currentSlug: string
+    slugs: string[]
     data: {
       name: string
       images: {
@@ -37,14 +38,14 @@ const Crew: NextPage<ICrew> = ({ crew }) => {
           className="mx-auto h-[223px] w-[327px] border-b-2 border-gray object-contain tablet:order-2 tablet:h-[532px] tablet:w-full tablet:border-b-0 desktop:h-auto"
         />
         <div className="mt-8 flex justify-center space-x-4 tablet:hidden">
-          {crew.names.map((crewName, index) => (
+          {crew.slugs.map((crewSlug, index) => (
             <Link
-              href={{ query: { crewTab: crewName } }}
+              href={{ pathname: crewSlug }}
               key={index}
               scroll={false}
               className={cn(
                 'inline-block h-[10px] w-[10px] rounded-full bg-white transition-opacity hover:opacity-50',
-                crew.tab == crewName ? 'opacity-1' : 'opacity-[17.44%]'
+                crew.currentSlug == crewSlug ? 'opacity-1' : 'opacity-[17.44%]'
               )}
             ></Link>
           ))}
@@ -60,14 +61,16 @@ const Crew: NextPage<ICrew> = ({ crew }) => {
             {crew.data.bio}
           </p>
           <div className="my-10 hidden justify-center space-x-4 tablet:flex desktop:mt-[120px] desktop:justify-start">
-            {crew.names.map((crewName, index) => (
+            {crew.slugs.map((crewSlug, index) => (
               <Link
-                href={{ query: { crewTab: crewName } }}
+                href={{ pathname: crewSlug }}
                 key={index}
                 scroll={false}
                 className={cn(
                   'inline-block h-[10px] w-[10px] rounded-full bg-white transition-opacity hover:opacity-50 desktop:h-[15px] desktop:w-[15px]',
-                  crew.tab == crewName ? 'opacity-1' : 'opacity-[17.44%]'
+                  crew.currentSlug == crewSlug
+                    ? 'opacity-1'
+                    : 'opacity-[17.44%]'
                 )}
               ></Link>
             ))}
@@ -80,36 +83,55 @@ const Crew: NextPage<ICrew> = ({ crew }) => {
 
 export default Crew
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const crewTab = query.crewTab as string
-  if (!crewTab) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: '/crew?crewTab=douglas-hurley',
-      },
-    }
-  }
-
-  const crewNames = crews.map((crew) => getNameSlug(crew.name))
-
-  if (!crewNames.includes(crewTab)) {
-    return {
-      notFound: true,
-    }
-  }
-
-  const crewData = crews.find((crew) => getNameSlug(crew.name) == crewTab)!
-
-  const crew = {
-    tab: crewTab,
-    names: crewNames,
-    data: crewData,
-  }
-
+export const getStaticPaths: GetStaticPaths = () => {
+  const paths = getPaths({ sources: crews, slug: 'crewSlug' })
   return {
-    props: {
-      crew,
-    },
+    paths,
+    fallback: false,
   }
 }
+
+export const getStaticProps: GetStaticProps = ({ params }) => {
+  const crew = getData({
+    sources: crews,
+    params,
+    slug: 'crewSlug',
+  })
+  return {
+    props: { crew },
+  }
+}
+
+// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+//   const crewTab = query.crewTab as string
+//   if (!crewTab) {
+//     return {
+//       redirect: {
+//         permanent: false,
+//         destination: '/crew?crewTab=douglas-hurley',
+//       },
+//     }
+//   }
+
+//   const crewNames = crews.map((crew) => getNameSlug(crew.name))
+
+//   if (!crewNames.includes(crewTab)) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   const crewData = crews.find((crew) => getNameSlug(crew.name) == crewTab)!
+
+//   const crew = {
+//     tab: crewTab,
+//     names: crewNames,
+//     data: crewData,
+//   }
+
+//   return {
+//     props: {
+//       crew,
+//     },
+//   }
+// }

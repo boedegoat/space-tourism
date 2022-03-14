@@ -1,11 +1,17 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Link from './Link'
-import { cn } from '../lib/utils'
+import { cn, getCurrentPath } from '../lib/utils'
+
+const navLinks = [
+  { name: 'home', path: '/' },
+  { name: 'destination', path: '/destination', slug: '/moon' },
+  { name: 'crew', path: '/crew', slug: '/douglas-hurley' },
+  { name: 'technology', path: '/technology', slug: '/launch-vehicle' },
+]
 
 const NavBar = () => {
   const router = useRouter()
-  const navLinks = ['home', 'destination', 'crew', 'technology']
   const [openMobileNav, setOpenMobileNav] = useState(false)
 
   useEffect(() => {
@@ -31,14 +37,13 @@ const NavBar = () => {
         {/* desktopNav */}
         <div className="hidden w-[61%] space-x-[37px] self-stretch bg-white/[4%] px-12 tablet:flex desktop:space-x-12 desktop:px-[123px] desktop:backdrop-blur-[81.55px]">
           {navLinks.map((link, index) => {
-            const path = `/${link == 'home' ? '' : link}`
             return (
               <Link
-                key={link}
-                href={path}
+                key={link.path}
+                href={link.path + (link.slug || '')}
                 className={cn(
                   'flex items-center border-b-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] text-white hover:border-white/50 desktop:text-base desktop:tracking-[2.7px]',
-                  router.pathname == path
+                  getCurrentPath(router) == link.path
                     ? 'border-white'
                     : 'border-transparent'
                 )}
@@ -46,7 +51,7 @@ const NavBar = () => {
                 <span className="mr-[11px] hidden font-bold desktop:inline-block">
                   0{index}
                 </span>
-                {link}
+                {link.name}
               </Link>
             )
           })}
@@ -63,10 +68,9 @@ const NavBar = () => {
 interface IMobileNav {
   openMobileNav: boolean
   closeMobileNav: () => void
-  navLinks: string[]
 }
 
-const MobileNav = ({ openMobileNav, closeMobileNav, navLinks }: IMobileNav) => {
+const MobileNav = ({ openMobileNav, closeMobileNav }: IMobileNav) => {
   const router = useRouter()
 
   return (
@@ -88,18 +92,17 @@ const MobileNav = ({ openMobileNav, closeMobileNav, navLinks }: IMobileNav) => {
         </div>
         <div className="mt-[64.95px] flex flex-col space-y-8 p-6 pr-0">
           {navLinks.map((link, index) => {
-            const path = `/${link == 'home' ? '' : link}`
             return (
               <Link
-                key={link}
-                href={path}
+                key={link.name}
+                href={link.path + (link.slug || '')}
                 className={cn(
                   'flex h-[31px] items-center border-white uppercase tracking-[2.7px] text-white',
-                  router.pathname == path ? 'border-r-4' : ''
+                  getCurrentPath(router) == link.path ? 'border-r-4' : ''
                 )}
               >
                 <span className="mr-[11px] font-bold">0{index}</span>
-                {link}
+                {link.name}
               </Link>
             )
           })}

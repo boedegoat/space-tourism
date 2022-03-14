@@ -1,3 +1,4 @@
+import { NextRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
 
 export function cn(...classNames: (string | undefined)[]) {
@@ -33,4 +34,8 @@ export function getPaths({ sources, slug }: { sources: any[]; slug: string }) {
       [slug]: getNameSlug(source.name),
     },
   }))
+}
+
+export function getCurrentPath(router: NextRouter) {
+  return /(\/\w*)\/*/g.exec(router.pathname)?.[1]
 }
