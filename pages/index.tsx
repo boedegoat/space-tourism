@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           experience!
         </p>
       </div>
-      <Link href="/destination" className="explore-btn">
+      <Link href="/destination/moon" className="explore-btn">
         EXPLORE
       </Link>
     </Container>
