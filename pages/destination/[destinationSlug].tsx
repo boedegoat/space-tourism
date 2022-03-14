@@ -1,15 +1,10 @@
-import type {
-  GetServerSideProps,
-  GetStaticPaths,
-  GetStaticProps,
-  NextPage,
-} from 'next'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { FC } from 'react'
 import Container from '../../components/Container'
 import Heading2 from '../../components/Heading2'
 import Link from '../../components/Link'
 import SpaceData from '../../data.json'
-import { cn, formatPath, getNameSlug } from '../../lib/utils'
+import { cn, formatPath, getData, getNameSlug, getPaths } from '../../lib/utils'
 const { destinations } = SpaceData
 
 interface IDestination {
@@ -93,12 +88,7 @@ const Planet: FC<IDestination> = ({ destination }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = destinations.map((destination) => ({
-    params: {
-      destinationSlug: getNameSlug(destination.name),
-    },
-  }))
-
+  const paths = getPaths({ sources: destinations, slug: 'destinationSlug' })
   return {
     paths,
     fallback: false,
@@ -106,16 +96,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 }
 
 export const getStaticProps: GetStaticProps = ({ params }) => {
-  const currentSlug = params!.destinationSlug
-  const data = destinations.find(
-    (destination) => getNameSlug(destination.name) == currentSlug
-  )
-  const slugs = destinations.map((destination) => getNameSlug(destination.name))
-  const destination = {
-    data,
-    slugs,
-    currentSlug,
-  }
+  const destination = getData({
+    sources: destinations,
+    params,
+    slug: 'destinationSlug',
+  })
   return {
     props: { destination },
   }
