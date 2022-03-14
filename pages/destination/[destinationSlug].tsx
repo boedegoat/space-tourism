@@ -1,16 +1,21 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type {
+  GetServerSideProps,
+  GetStaticPaths,
+  GetStaticProps,
+  NextPage,
+} from 'next'
 import { FC } from 'react'
-import Container from '../components/Container'
-import Heading2 from '../components/Heading2'
-import Link from '../components/Link'
-import SpaceData from '../data.json'
-import { cn, formatPath } from '../lib/utils'
+import Container from '../../components/Container'
+import Heading2 from '../../components/Heading2'
+import Link from '../../components/Link'
+import SpaceData from '../../data.json'
+import { cn, formatPath, getNameSlug } from '../../lib/utils'
 const { destinations } = SpaceData
 
 interface IDestination {
   destination: {
-    tab: string
-    names: string[]
+    currentSlug: string
+    slugs: string[]
     data: {
       name: string
       images: {
@@ -49,19 +54,19 @@ const Planet: FC<IDestination> = ({ destination }) => {
       <div className="mt-[26px] flex flex-col items-center tablet:mt-[53px] desktop:items-start desktop:text-left">
         {/* tabs */}
         <div className="flex space-x-[26px]">
-          {destination.names.map((destinationName) => (
+          {destination.slugs.map((destinationSlug) => (
             <Link
-              href={{ query: { destinationTab: destinationName } }}
+              href={{ pathname: destinationSlug }}
               scroll={false}
-              key={destinationName}
+              key={destinationSlug}
               className={cn(
                 'border-white pb-2 font-barlow-condensed text-sm uppercase tracking-[2.36px] hover:border-b-[3px] hover:border-white/50 tablet:text-base tablet:tracking-[2.7px]',
-                destination.tab == destinationName
+                destination.currentSlug == destinationSlug
                   ? 'border-b-[3px] text-white'
                   : 'text-blue-100'
               )}
             >
-              {destinationName}
+              {destinationSlug}
             </Link>
           ))}
         </div>
@@ -87,40 +92,31 @@ const Planet: FC<IDestination> = ({ destination }) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const destinationTab = query.destinationTab as string
-  if (!destinationTab) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: '/destination?destinationTab=moon',
-      },
-    }
-  }
-
-  const destinationNames = destinations.map((destination) =>
-    destination.name.toLowerCase()
-  )
-
-  if (!destinationNames.includes(destinationTab)) {
-    return {
-      notFound: true,
-    }
-  }
-
-  const destinationData = destinations.find(
-    (destination) => destination.name.toLowerCase() == destinationTab
-  )
-
-  const destination = {
-    tab: destinationTab,
-    names: destinationNames,
-    data: destinationData,
-  }
+export const getStaticPaths: GetStaticPaths = () => {
+  const paths = destinations.map((destination) => ({
+    params: {
+      destinationSlug: getNameSlug(destination.name),
+    },
+  }))
 
   return {
-    props: {
-      destination,
-    },
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = ({ params }) => {
+  const currentSlug = params!.destinationSlug
+  const data = destinations.find(
+    (destination) => getNameSlug(destination.name) == currentSlug
+  )
+  const slugs = destinations.map((destination) => getNameSlug(destination.name))
+  const destination = {
+    data,
+    slugs,
+    currentSlug,
+  }
+  return {
+    props: { destination },
   }
 }
