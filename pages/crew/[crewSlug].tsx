@@ -4,7 +4,7 @@ import Container from '../../components/Container'
 import Heading2 from '../../components/Heading2'
 import Link from '../../components/Link'
 import SpaceData from '../../data.json'
-import { cn, formatPath, getNameSlug } from '../../lib/utils'
+import { cn, formatPath } from '../../lib/utils'
 const { crew: crews } = SpaceData
 
 interface ICrew {
@@ -101,37 +101,3 @@ export const getStaticProps: GetStaticProps = ({ params }) => {
     props: { crew },
   }
 }
-
-// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-//   const crewTab = query.crewTab as string
-//   if (!crewTab) {
-//     return {
-//       redirect: {
-//         permanent: false,
-//         destination: '/crew?crewTab=douglas-hurley',
-//       },
-//     }
-//   }
-
-//   const crewNames = crews.map((crew) => getNameSlug(crew.name))
-
-//   if (!crewNames.includes(crewTab)) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   const crewData = crews.find((crew) => getNameSlug(crew.name) == crewTab)!
-
-//   const crew = {
-//     tab: crewTab,
-//     names: crewNames,
-//     data: crewData,
-//   }
-
-//   return {
-//     props: {
-//       crew,
-//     },
-//   }
-// }

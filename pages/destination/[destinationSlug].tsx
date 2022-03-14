@@ -4,7 +4,7 @@ import Container from '../../components/Container'
 import Heading2 from '../../components/Heading2'
 import Link from '../../components/Link'
 import SpaceData from '../../data.json'
-import { cn, formatPath, getData, getNameSlug, getPaths } from '../../lib/utils'
+import { cn, formatPath, getData, getPaths } from '../../lib/utils'
 const { destinations } = SpaceData
 
 interface IDestination {
