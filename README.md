@@ -2,14 +2,16 @@
 
 <!-- screenshots here -->
 
+![](./screenshot.png)
+
 A challenge from [frontendmentor.io](https://www.frontendmentor.io/)
 
 ## Overview
 
 ### Links
 
-- [Live Site](https://your-live-site-url.com)
-- [Solution](https://your-solution-url.com)
+- [Live Site](https://space-tourism-boedegoat.vercel.app/)
+- [Solution](https://www.frontendmentor.io/solutions/space-tourism-app-with-nextjs-tailwind-css-phx1gIWDx)
 
 ### The challenge
 
@@ -24,24 +26,18 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
-- [Other libraries](https://link/)...
+- Tailwind CSS
+- Next.js
 
 ### What I learned
 
-- What do you think about this project ?
-- What have you learned from this project ?
-- Is there any issue while doing this project ?
-- How you solve those issue ?
+This project is quite challenging. I got some difficulties to make the responsive layout between mobile, tablet, and desktop. Aside from that, I learnt a lot especially for building unique layout even though it's not perfect.
 
 ### Useful Resources
 
 1. [Figma](https://www.figma.com/) - Paste your project design mockups to check the size, colors, etc.
-2. [Perfect Pixel](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi) - Helps you to match the pixels of the design.
 
 ## Acknowledgments
 
